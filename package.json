@@ -1,0 +1,14 @@
+{
+  "name": "sbb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sbb",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ova",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
+}
