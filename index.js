@@ -2,31 +2,32 @@ const Discord = require("discord.js");
 
 const client = new Discord.Client();
 
-const config = require("./config.json");
+var token = ("NjE3OTA0NDE5ODYxODIzNTA4.XWx6hA.4bzCHaZ0Nm4Fvv52nwYTG7B_4wA");
+var prefix = ("!");
 
 
 client.on("ready", () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-  client.user.setActivity(`Serving ${client.guilds.size} servers`);
+  client.user.setActivity(`Serving ${client.guilds.size} server(s)`);
 });
 
 client.on("guildCreate", guild => {
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setActivity(`Serving ${client.guilds.size} servers`);
+  client.user.setActivity(`Serving ${client.guilds.size} server(s)`);
 });
 
 client.on("guildDelete", guild => {
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-  client.user.setActivity(`Serving ${client.guilds.size} servers`);
+  client.user.setActivity(`Serving ${client.guilds.size} server(s)`);
 });
 
 
 client.on("message", async message => {
   if(message.author.bot) return;
   
-  if(message.content.indexOf(config.prefix) !== 0) return;
+  if(message.content.indexOf(prefix) !== 0) return;
   
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
   if(command === "ping") {
@@ -90,4 +91,4 @@ client.on("message", async message => {
   }
 });
 
-client.login(config.token);
+client.login(token);
